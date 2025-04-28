@@ -34,7 +34,8 @@ test-frontend: ## Run frontend tests using npm
 # Docker commands
 .PHONY: docker-backend-shell docker-frontend-shell docker-build docker-build-backend \
         docker-build-frontend docker-start-backend docker-start-frontend docker-up-test-db \
-        docker-migrate-db docker-db-schema docker-test-backend docker-test-frontend
+        docker-migrate-db docker-db-schema docker-test-backend docker-test-frontend \
+        docker-reset-db
 
 
 docker-backend-shell: ## Access the backend container shell
@@ -72,3 +73,12 @@ docker-test-backend: ## Run tests for the backend
 
 docker-test-frontend: ## Run tests for the frontend
 	$(DOCKER_COMPOSE) run --rm frontend pnpm run test
+
+docker-reset-db: ## Reset and reinitialize the database
+	@echo "Dropping all tables..."
+	$(DOCKER_COMPOSE) run --rm backend alembic downgrade base
+	@echo "Reapplying migrations..."
+	$(DOCKER_COMPOSE) run --rm backend alembic upgrade head
+	@echo "Seeding baseline data..."
+	$(DOCKER_COMPOSE) run --rm backend python scripts/seed_db.py
+	@echo "Database reset and initialization complete."

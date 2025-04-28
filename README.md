@@ -24,7 +24,6 @@ Introducing the Next.js FastAPI Template: A cutting-edge foundation for modern f
 ## Table of Contents
 * [About](#about)
 * [Production-Ready Authentication & Dashboard](#production-ready-authentication-and-dashboard)
-* [Getting Started with This Template](#getting-started-with-this-template)
 * [Setup](#local-setup)
   * [Installing Required Tools](#installing-required-tools)
     * [1. uv](#1-uv)
@@ -93,17 +92,6 @@ With this setup, you'll save time and maintain a seamless connection between you
 
 ## Production-Ready Authentication & Dashboard Features
 This template comes with a pre-configured authentication system and a simple dashboard interface, allowing you to start building your application with user management features immediately.
-
-## Getting Started with This Template
-
-To use this template for your own project:
-
-1. Create a new repository using this template by following GitHub's [template repository guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template)
-2. Clone your new repository and navigate to it: `cd your-project-name`
-3. Update this README:
-   - Change the project name in the first line
-   - Remove this "Getting Started with This Template" section
-4. Make sure you have Python 3.12 installed
 
 Once completed, proceed to the [Setup](#setup) section below.
 
