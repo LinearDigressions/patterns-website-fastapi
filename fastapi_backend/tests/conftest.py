@@ -12,11 +12,16 @@ from app.database import get_user_db, get_async_session
 from app.main import app
 from app.users import get_jwt_strategy
 
+import ssl
+
 
 @pytest_asyncio.fixture(scope="function")
 async def engine():
     """Create a fresh test database engine for each test function."""
-    engine = create_async_engine(settings.TEST_DATABASE_URL, echo=True)
+    ssl_context = ssl.create_default_context()
+    engine = create_async_engine(
+        settings.TEST_DATABASE_URL, echo=True, connect_args={"ssl": ssl_context}
+    )
 
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
