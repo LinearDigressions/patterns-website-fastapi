@@ -55,7 +55,7 @@ jobs:
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.4
         with:
-          github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: python-coverage
           parallel: true
           path-to-lcov: fastapi_backend/coverage.xml
@@ -91,7 +91,7 @@ jobs:
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.4
         with:
-          github-token: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: node-coverage
           parallel: true
           path-to-lcov: nextjs-frontend/coverage/lcov.info
