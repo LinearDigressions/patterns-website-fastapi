@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-client": "openapi-ts",
+    "generate-client": "openapi-ts --input openapi.json",
     "test": "jest",
     "coverage": "jest --coverage",
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,html}'",
@@ -38,6 +38,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.18.0",
     "@hey-api/openapi-ts": "^0.60.1",
     "@next/eslint-plugin-next": "^15.1.4",
